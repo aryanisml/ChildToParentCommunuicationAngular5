@@ -1,3 +1,5 @@
+# Share the data from child to parent using two way binding in Angular 5
+
 # angular-yampt1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
