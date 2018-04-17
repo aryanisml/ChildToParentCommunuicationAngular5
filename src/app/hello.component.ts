@@ -1,11 +1,15 @@
 import { Component, Input,EventEmitter,Output } from '@angular/core';
-
+import { SampleService } from './sample.service';
+import { Subscriber } from 'rxjs';
 @Component({
   selector: 'hello',
   template: `<h1>Hello {{selection}}!</h1><button (click)="show()">ShowChild1</button> `,
   styles: [`h1 { font-family: Lato; }`]
 })
 export class HelloComponent  {
+  constructor(private sampleService:SampleService){
+
+  }
   @Input() name: string;
    private _name;
 
@@ -28,6 +32,8 @@ this.selectionChange.emit(this._name);
 show(){
   //console.log('Swapnil');
   this.selection='Swapnil';
+  this.sampleService.setData('Swapnil');
+
 }
 
 }
