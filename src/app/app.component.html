@@ -1,8 +1,13 @@
-<hello name="{{ name }}"   [(selection)]="getSelect" ></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
-
-{{getSelect}}
+ {{getSelect}}
 
 <button (click)="Hello()">ShowParent</button>
+
+
+<hello name="{{ name }}" [(selection)]="getSelect"></hello>
+<p>
+    Start editing to see some magic happen :)
+</p>
+
+<h2>
+    <hellosecond [(selection)]="getSelect2"></hellosecond>
+</h2>

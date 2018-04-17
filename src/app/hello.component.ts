@@ -2,7 +2,7 @@ import { Component, Input,EventEmitter,Output } from '@angular/core';
 
 @Component({
   selector: 'hello',
-  template: `<h1>Hello {{name}}!</h1><button (click)="show()">Show</button> `,
+  template: `<h1>Hello {{selection}}!</h1><button (click)="show()">ShowChild1</button> `,
   styles: [`h1 { font-family: Lato; }`]
 })
 export class HelloComponent  {
@@ -26,7 +26,7 @@ this.selectionChange.emit(this._name);
 
 
 show(){
-  console.log('Swapnil');
+  //console.log('Swapnil');
   this.selection='Swapnil';
 }
 
