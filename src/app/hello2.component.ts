@@ -4,22 +4,31 @@ import { Subscriber } from 'rxjs';
 
 @Component({
     selector: 'hellosecond',
-    template: `<h1>{{twoWay}}</h1><h1>{{SubjectValue}}</h1>`
+    template: `<h1>{{twoWay}}</h1><h1>{{SubjectValue}}</h1>
+            <h2>{{myInfo}}</h2>`
 })
 
 export class HelloSecondComponent implements OnInit {
     private _name:string;
     private twoWay:string;
     private SubjectValue:string;
+    myInfo:any;
+    private newValue:string;
     @Output() selectionChange:  EventEmitter<any> = new EventEmitter<any>();
-    constructor(private sampleService:SampleService) { }
+    constructor(private sampleService:SampleService) { 
+        this.sampleService.mySubject.subscribe((data)=>{
+            this.SubjectValue='Subject ' + data;
+        })
+       this.myInfo=this.sampleService.myInfo;
+       this.sampleService._myInfo$.subscribe((data)=>{
+        this.myInfo='Variable Set ' + data;
+       })
+    }
 
     ngOnInit() {
 
 
-        this.sampleService.mySubject.subscribe((data)=>{
-            this.SubjectValue='Subject ' + data;
-        })
+       
      }
     
 @Input() get selection(){
